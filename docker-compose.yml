@@ -1,0 +1,29 @@
+version: '3'
+
+services:
+  web: &web
+    build: .
+    command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
+    ports:
+      - "3000:3000"
+    volumes:
+      - .:/webapp
+      - bundle:/usr/local/bundle
+    depends_on:
+      - redis
+    tty: true
+    stdin_open: true
+  spring:
+    <<: *web
+    command: ["bundle", "exec", "spring", "server"]
+    ports: []
+    tty: false
+    stdin_open: false
+  redis:
+    image: redis:5.0.5-alpine
+    ports:
+      - 6379:6379
+
+volumes:
+  bundle:
+

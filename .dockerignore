@@ -1,0 +1,15 @@
+# git
+.git
+.gitignore
+
+# Logs
+log/*
+
+# Temp files
+tmp/*
+
+# other files
+*.DS_Store
+*.swp
+*.swo
+

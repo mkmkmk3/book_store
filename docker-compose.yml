@@ -9,11 +9,7 @@ services:
     volumes:
       - .:/webapp
       - bundle:/usr/local/bundle
-    environment:
-      DATABASE_HOST: db
-      POSTGRES_DB: mybookshop_development
-      POSTGRES_USER: mybookshop
-      POSTGRES_PASSWORD: password123
+    env_file: .env
     depends_on:
       - redis
       - db
@@ -39,10 +35,7 @@ services:
 
   db:
     image: postgres:11.3
-    environment:
-      POSTGRES_DB: mybookshop_development
-      POSTGRES_USER: mybookshop
-      POSTGRES_PASSWORD: password123
+    env_file: .env
     volumes:
       - dbdata:/var/lib/postgresql/data
 

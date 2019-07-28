@@ -1,0 +1,9 @@
+// コンポーネントのCSSを記載
+
+// フラッシュメッセージ
+// SemanticUIのフラッシュメッセージのクラス名のエイリアスをつくる
+// エイリアス名がRailsのFlashのキーに対応させることで変換を必要なくする
+.success { @extend .positive; };
+.notice { @extend .warning; };
+.alert { @extend .negative; };
+

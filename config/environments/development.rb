@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
@@ -14,9 +16,9 @@ Rails.application.configure do
 
   # Redis Cache
   config.cache_store = :redis_store, {
-    host: "redis",
+    host: 'redis',
     port: 6379,
-    namespace: "cache"
+    namespace: 'cache'
   }, {
     expires_in: 1.week
   }
@@ -49,4 +51,11 @@ Rails.application.configure do
   # Use an evented file watcher to asynchronously detect changes in source code,
   # routes, locales, etc. This feature depends on the listen gem.
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
+
+  # Bullet N+1検知
+  config.after_initialize do
+    Bullet.enable = true # bulletを有効にする
+    Bullet.rails_logger = true # railsのログに出力
+    Bullet.add_footer = true # フッターとして表示
+  end
 end

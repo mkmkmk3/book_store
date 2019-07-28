@@ -1,0 +1,15 @@
+// 要素の修正を記載するCSS
+
+$teal: #00B5AD;
+$teal-dark: #009c95;
+
+// Aタグ
+a {
+  font-size: 14px;
+  color: $teal;
+  &:hover, &:focus, &:active {
+    color: $teal-dark;
+    text-shadow: none;
+  }
+}
+

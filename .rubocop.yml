@@ -1,0 +1,49 @@
+require:
+  - rubocop/cop/internal_affairs
+  - rubocop-performance
+  - rubocop-rails
+  - rubocop-rspec
+
+AllCops:
+  TargetRubyVersion: 2.6
+  Exclude:
+    - 'db/migrate/**/*'
+    - 'db/schema.rb'
+    - 'db/seeds.rb'
+    - 'db/fixtures/**/*'
+    - 'log/**/*'
+    - 'node_modules/**/*'
+    - 'tmp/**/*'
+    - 'vendor/**/*'
+  # 1行140文字まで許可
+  Metrics/LineLength:
+    Max: 140
+    Exclude:
+      - 'config/initializers/*'
+  # ブロックの長さをチェック
+  Metrics/BlockLength:
+    Exclude:
+      - 'config/**/*'
+      - 'spec/**/*'
+  # クラスにコメント記載を除外
+  Style/Documentation:
+    Enabled: false
+    Style/MixinUsage:
+      Exclude:
+        - 'bin/*'
+  # 日本語コメントを許可
+  AsciiComments:
+    Enabled: false
+  # Gemfileの並び順の除外
+  Bundler/OrderedGems:
+    Enabled: false
+  # Rspecのフック引数の除外
+  RSpec/HookArgument:
+    Enabled: false
+  RSpec/ExampleLength:
+    Enabled: false
+  RSpec/MultipleExpectations:
+    Enabled: false
+  RSpec/AnyInstance:
+    Enabled: false
+

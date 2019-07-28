@@ -1,0 +1,45 @@
+// ユーティリティのCSS
+
+// margin / padding
+// Ex. mt10 (margin-top: 10px), mb20 (margin-right: 20px)
+@each $space in (0, 10, 10, 15, 20, 25, 30, 35, 40, 45, 50, 75, 100) {
+  @each $side in (top, bottom, left, right) {
+    .m#{str-slice($side, 0, 1)}#{$space} {
+      margin-#{$side}: #{$space}px !important;
+    }
+
+    .p#{str-slice($side, 0, 1)}#{$space} {
+      padding-#{$side}: #{$space}px !important;
+    }
+  }
+}
+
+// width / height
+// Ex. w20p (width: 20%), h100% (height: 100%)
+@each $percent in (20, 40, 60, 80, 100) {
+  .w#{$percent}p {
+    width: #{$percent}% !important;
+  }
+  .h-#{$percent}p {
+    height: #{$percent}% !important;
+  }
+}
+
+// fonts
+.text-bigger { font-size: 1.2rem !important; }
+.text-large { font-size: 1.4rem !important; }
+.text-huge { font-size: 1.6rem !important; }
+.text-bold { font-weight: bold !important; }
+
+.text-thin {
+  color: #666;
+  font-size: 0.9em;
+}
+
+// display
+.d-i { display: inline !important; }
+.d-n { display: none !important; }
+.d-b { display: block !important; }
+.d-ib { display: inline-block !important; }
+.d-fx { display: flex !important; }
+

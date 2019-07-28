@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
@@ -40,4 +42,11 @@ Rails.application.configure do
 
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
+
+  # Bullet N+1検知
+  config.after_initialize do
+    Bullet.enable = true # bulletを有効にする
+    Bullet.bullet_logger = true # bulletのログに出力
+    Bullet.raise = true # Errorを発生してくれるのでテストがこける
+  end
 end

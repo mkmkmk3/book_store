@@ -9,8 +9,14 @@ services:
     volumes:
       - .:/webapp
       - bundle:/usr/local/bundle
+    environment:
+      DATABASE_HOST: db
+      POSTGRES_DB: mybookshop_development
+      POSTGRES_USER: mybookshop
+      POSTGRES_PASSWORD: password123
     depends_on:
       - redis
+      - db
     tty: true
     stdin_open: true
   spring:
@@ -23,7 +29,16 @@ services:
     image: redis:5.0.5-alpine
     ports:
       - 6379:6379
+  db:
+    image: postgres:11.3
+    environment:
+      POSTGRES_DB: mybookshop_development
+      POSTGRES_USER: mybookshop
+      POSTGRES_PASSWORD: password123
+    volumes:
+      - dbdata:/var/lib/postgresql/data
 
 volumes:
   bundle:
+  dbdata:
 

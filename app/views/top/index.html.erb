@@ -1,0 +1,55 @@
+<%# トップページ用のCSSファイルを読み込む %>
+<% content_for :head do %>
+  <%= stylesheet_link_tag 'pages/top' %>
+<% end %>
+
+<div class="top">
+  <div class="hero">
+    <div class="hero-image">
+      <%= image_tag "/assets/images/top_hero.png" %>
+    </div>
+    <div class="hero-text">
+      <h1>MyBookShop</h1>
+    </div>
+  </div>
+  <div class="ui container">
+    <div class="ui vertical stripe quote segment mt40">
+      <h2 class="ui centered header">
+        MyBookShopとは？
+      </h2>
+      <div class="ui equal width stackable internally celled grid">
+        <div class="center aligned row">
+          <div class="column">
+            <%= image_tag "/assets/images/no_image.png", class: 'w60p' %>
+            <h3>ここにしかない書籍</h3>
+            <p>ここでしか売られていないオリジナルの書籍を取り扱っています</p>
+          </div>
+          <div class="column">
+            <%= image_tag "/assets/images/no_image.png", class: 'w60p' %>
+            <h3>豊富な種類</h3>
+            <p>ジャンルも豊かでバラエティ豊かな書籍を置いています</p>
+            第3章 Railsのセットアップ
+          </div>
+          <div class="column">
+            <%= image_tag "/assets/images/no_image.png", class: 'w60p' %>
+            <h3>手頃なお値段</h3>
+            <p>手に届きやすいお手頃な価格で販売しています</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="mt40">
+      <h2 class="ui centered header">新着の書籍</h2>
+      <div class="ui six doubling cards">
+        <% 6.times.each do %>
+          <a class="card">
+            <div class="image">
+              <%= image_tag "/assets/images/no_image.png" %>
+            </div>
+          </a>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+

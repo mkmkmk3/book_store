@@ -29,5 +29,7 @@ module Webapp
 
     # Don't generate system test files.
     config.generators.system_tests = nil
+    # sidekiqを利用
+     config.active_job.queue_adapter = :sidekiq
   end
 end

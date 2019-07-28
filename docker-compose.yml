@@ -19,16 +19,24 @@ services:
       - db
     tty: true
     stdin_open: true
+
   spring:
     <<: *web
     command: ["bundle", "exec", "spring", "server"]
     ports: []
     tty: false
     stdin_open: false
+
+  worker:
+    <<: *web
+    command: ["bundle", "exec", "sidekiq", "-C", "config/sidekiq.yml"]
+    ports: []
+
   redis:
     image: redis:5.0.5-alpine
     ports:
       - 6379:6379
+
   db:
     image: postgres:11.3
     environment:

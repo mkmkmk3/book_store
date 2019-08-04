@@ -1,0 +1,32 @@
+ja:
+  activerecord:
+    models:
+      item: 商品
+      item_category: 商品カテゴリ
+      item_seller: 販売者
+      item_isbn_code: ISBNコード
+      item_image: 商品画像
+      item_author: 著者
+      item_authors_item: 著者商品
+    attributes:
+      item:
+        title: タイトル
+        description: 商品説明
+        price: 価格
+        stock: 在庫
+        item_category: 商品カテゴリ
+        item_seller: 販売者
+        published_on: 発売日
+        discontinued_on: 販売終了日
+      item_category:
+        name: カテゴリ名
+      item_seller:
+        name: 販売者名
+      itme_isbn_code:
+        isbn13: ISBNコード13桁
+      item_image:
+        file: 画像
+      item_author:
+        name: 名前
+      item_authors_item:
+        author_type: 著者種別
